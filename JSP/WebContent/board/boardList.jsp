@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>	
 <% 
-	//데이터베이스2
+	//데이터베이스23
 	//Class.forName("com.mysql.cj.jdbc.Driver");
 
 	Connection 			conn 	= null;

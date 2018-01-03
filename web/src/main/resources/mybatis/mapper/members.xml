@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="members">
+	
+	
+	<select id="selectList" resultType="com.jhk.web.member.MembersVO" >
+        select m_id, m_name 
+        from members
+    </select>
+    
+    <select id="selectMembersOne" parameterType="com.jhk.web.member.MembersVO" resultType="com.jhk.web.member.MembersVO" >
+    	select m_id, m_name, m_email, m_address1
+    	from members
+    	where m_id = #{mId}
+    </select>
+    
+    <select id="selectLogin" parameterType="com.jhk.web.member.MembersVO" resultType="Integer">
+    	select count(m_id) as cnt 
+    	from members
+    	where m_id = #{mId} and m_password = sha(#{mPassword})
+    </select>
+    
+    
+    
+</mapper>    

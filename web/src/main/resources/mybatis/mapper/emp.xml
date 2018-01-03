@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="emp">
+	
+	<select id="selectJob" parameterType="String" resultType="com.jhk.web.emp.EmpVO" >
+		select ename, job 
+		from emp
+		where ename = #{ename} 
+	</select>
+	
+	<select id="selectDname" resultType="com.jhk.web.emp.EmpVO">
+		select empno, ename, job, dname, emp_copy.deptno
+		from emp_copy inner join dept_copy
+		on emp_copy.deptno = dept_copy.deptno
+	</select>   
+	
+	<update id="updateDname" parameterType="com.jhk.web.emp.EmpVO">
+		update dept_copy 
+		set dname = #{dname}
+		where deptno = #{deptno}
+	</update>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+</mapper>    
