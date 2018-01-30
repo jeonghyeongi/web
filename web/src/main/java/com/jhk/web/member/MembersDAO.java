@@ -24,5 +24,15 @@ public class MembersDAO {
 		return sqlSession.selectOne("members.selectLogin", vo);
 	}
 	
+	//members전체카운트
+	public int selectTotalCountMembers() {
+		return sqlSession.selectOne("members.selectTotalCountMembers");
+	}
+	
+	//회원 페이징
+	public List<MembersVO> selectPagingMembers(MembersVO vo){
+		return sqlSession.selectList("members.selectPagingMembers", vo);
+	}
+	
 
 }

@@ -15,12 +15,27 @@ public class EmpService {
 		return dao.selectJob(ename);
 	}
 	
-	public List<EmpVO> selectDname(){
-		return dao.selectDname();
+	public List<EmpVO> selectDname(EmpSVO svo){
+		return dao.selectDname(svo);
 	}
 	
 	
 	public int updateDname(EmpVO vo) {
 		return dao.updateDname(vo);
 	}
+	
+	public int insertApply(ApplyVO vo) {
+		return dao.insertApply(vo);
+	}
+	
+	public List<EmpVO> selectTotalSal(){
+		return dao.selectTotalSal();
+	}
+	
+	
+	
+	
+	
+	
+	
 }

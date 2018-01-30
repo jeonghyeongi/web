@@ -1,13 +1,24 @@
 package com.jhk.web.member;
 
-public class MembersVO {
+import com.jhk.web.common.PagingVO;
+
+public class MembersVO extends PagingVO {
 
 	private String mId;
 	private String mName;
 	private String mEmail;
 	private String mAddress1;
 	private String mPassword;
+	private int mNo;
 	
+	
+	
+	public int getmNo() {
+		return mNo;
+	}
+	public void setmNo(int mNo) {
+		this.mNo = mNo;
+	}
 	public String getmPassword() {
 		return mPassword;
 	}

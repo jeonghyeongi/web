@@ -128,6 +128,26 @@ public class MembersController {
 		return mav;
 	}
 	
+	@RequestMapping("/member/loginComplete")
+	public String loginComplete() {
+		
+		return "member/loginComplete";
+	}
 	
+	//회원 페이징 리스트
+	@GetMapping("/member/selectPaingMemberList")
+	public String selectPaingMemberList(@RequestParam("currPage") int currPage, 
+			Model model) {
+		MembersVO vo = new MembersVO();
+		vo.setTotalCount(serivce.selectTotalCountMembers());
+		vo.setCurrPage(currPage);
+		
+		List<MembersVO> list = serivce.selectPagingMembers(vo);
+		model.addAttribute("list", list);
+		model.addAttribute("startPageNum", vo.getStartPageNum());
+		model.addAttribute("lastPageNum", vo.getLastPageNum());
+		model.addAttribute("currPage", vo.getCurrPage());
+		return "member/selectPaingMemberList";
+	}
 	
 }

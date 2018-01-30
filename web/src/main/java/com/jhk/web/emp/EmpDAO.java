@@ -16,11 +16,27 @@ public class EmpDAO {
 		return sqlSession.selectList("emp.selectJob", ename);
 	}
 	
-	public List<EmpVO> selectDname(){
-		return sqlSession.selectList("emp.selectDname");
+	public List<EmpVO> selectDname(EmpSVO svo){
+		return sqlSession.selectList("emp.selectDname",svo);
 	}
 	
 	public int updateDname(EmpVO vo) {
 		return sqlSession.update("emp.updateDname", vo);
 	}
+	
+	
+	public int insertApply(ApplyVO vo) {
+		return sqlSession.insert("emp.insertApply", vo);
+	}
+	
+	public List<EmpVO> selectTotalSal(){
+		return sqlSession.selectList("emp.selectTotalSal");
+	}
+	
+	
+	
+	
+	
+	
+	
 }

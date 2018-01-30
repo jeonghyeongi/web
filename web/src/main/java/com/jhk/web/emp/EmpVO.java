@@ -6,6 +6,9 @@ public class EmpVO {
 	private String dname;
 	private int deptno;
 	private int empno;
+	private int sal;
+	private int comm;
+	private int total;
 	
 	
 	public int getEmpno() {
@@ -37,6 +40,24 @@ public class EmpVO {
 	}
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
+	}
+	public int getSal() {
+		return sal;
+	}
+	public void setSal(int sal) {
+		this.sal = sal;
+	}
+	public int getComm() {
+		return comm;
+	}
+	public void setComm(int comm) {
+		this.comm = comm;
+	}
+	public int getTotal() {
+		return total;
+	}
+	public void setTotal(int total) {
+		this.total = total;
 	}
 	
 	
