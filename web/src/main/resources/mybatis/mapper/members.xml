@@ -22,6 +22,17 @@
     	where m_id = #{mId} and m_password = sha(#{mPassword})
     </select>
     
+    <select id="selectPagingMembers" parameterType="com.jhk.web.member.MembersVO" 
+    		resultType="com.jhk.web.member.MembersVO">
+    	select m_no, m_id, m_name
+    	from
+    	members
+    	limit #{limit} offset #{offset}
+    </select>
     
+    <select id="selectTotalCountMembers" resultType="Integer">
+    	select count(m_no) as totalCount
+    	from members
+    </select>
     
 </mapper>    

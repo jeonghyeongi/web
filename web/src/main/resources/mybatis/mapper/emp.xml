@@ -10,10 +10,16 @@
 		where ename = #{ename} 
 	</select>
 	
-	<select id="selectDname" resultType="com.jhk.web.emp.EmpVO">
+	<select id="selectDname" parameterType="com.jhk.web.emp.EmpSVO" resultType="com.jhk.web.emp.EmpVO">
 		select empno, ename, job, dname, emp_copy.deptno
 		from emp_copy inner join dept_copy
 		on emp_copy.deptno = dept_copy.deptno
+		<if test="selectType != null and selectType == 'job' " >
+		where job = #{searchWord}
+		</if>
+		<if test="selectType != null and selectType == 'dname'">		
+		where dname = #{searchWord}
+		</if>
 	</select>   
 	
 	<update id="updateDname" parameterType="com.jhk.web.emp.EmpVO">
@@ -22,8 +28,24 @@
 		where deptno = #{deptno}
 	</update>
 	
+	<insert id="insertApply" parameterType="com.jhk.web.emp.ApplyVO">
+		insert into apply (usr_no, usr_name, usr_sal, 
+							usr_address, usr_favorite,usr_hobby,
+							usr_intro,usr_img
+							)
+		values
+		(
+			#{usrNo}, #{usrName}, #{usrSal}, #{usrAddress}, #{usrFavorite},
+			#{usrHobby}, #{usrIntro}, #{usrImg}		
+		)					
+	</insert>
 	
 	
+	<select id="selectTotalSal" resultType="com.jhk.web.emp.EmpVO">
+		select ename, job, sal, comm, 
+		(coalesce(sal,0)+coalesce(comm,0)) as total
+		from emp
+	</select>
 	
 	
 	

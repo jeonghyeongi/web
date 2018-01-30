@@ -10,5 +10,6 @@
   <mappers>
   	 <mapper resource="mybatis/mapper/members.xml"/>
   	 <mapper resource="mybatis/mapper/emp.xml"/>
+  	 
   </mappers>
 </configuration>  
