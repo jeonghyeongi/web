@@ -110,7 +110,7 @@
 	<!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">로그인</h3>
+              <h3 class="box-title">로그인3</h3>
             </div>
 			<form class="form-horizontal" id="frmLogin">
 				<div class="box-body">
